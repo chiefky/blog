@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="red crab">
+    <meta name="keywords" content="内存布局-内存对齐, red crab">
     <meta name="description" content="憧憬是距离理解最遥远的感情">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>red crab</title>
+    <title>内存布局-内存对齐 | red crab</title>
     <link rel="icon" type="image/png" href="/blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">内存布局-内存对齐</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +431,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/blog/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
+                                <span class="chip bg-color">内存管理</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/blog/categories/iOS/" class="post-category">
+                                iOS
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -445,7 +458,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-27
+                    2018-09-07
                 </div>
                 
 
@@ -466,7 +479,279 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: <span class="number">404</span></span><br><span class="line">date: <span class="number">2019</span><span class="number">-07</span><span class="number">-19</span> <span class="number">16</span>:<span class="number">41</span>:<span class="number">10</span></span><br><span class="line">type: <span class="string">"404"</span></span><br><span class="line">layout: <span class="string">"404"</span></span><br><span class="line">description: <span class="string">"Oops～，我崩溃了！找不到你想要的页面 :("</span></span><br></pre></td></tr></tbody></table></figure>
+                <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1. 基础知识"></a>1. 基础知识</h1><p><strong>C/C++各数据类型占用字节数(Byte)</strong></p>
+<table>
+<thead>
+<tr>
+<th>编译器类型</th>
+<th>16位</th>
+<th>32位</th>
+<th>64位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>char</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>short int</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>int</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>unsigned int</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>long</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>unsigned long</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>long long</td>
+<td>8</td>
+<td>8</td>
+<td>8</td>
+</tr>
+<tr>
+<td>float</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8</td>
+<td>8</td>
+<td>8</td>
+</tr>
+<tr>
+<td>指针</td>
+<td>2</td>
+<td>4</td>
+<td>8</td>
+</tr>
+</tbody></table>
+<p>附: </p>
+<blockquote>
+<p>32位的操作系统就是指：地址总线是32位的系统。那么，也就是说操作系统的位数决定了指针变量所占的字节数。</p>
+</blockquote>
+<h1 id="2-获取内存大小的三种方式"><a href="#2-获取内存大小的三种方式" class="headerlink" title="2. 获取内存大小的三种方式"></a>2. 获取内存大小的三种方式</h1><ul>
+<li><p>sizeof</p>
+<blockquote>
+<p>1、<code>sizeof</code>是一个 <strong>操作符</strong>，不是函数</p>
+<p>2、我们一般用sizeof计算内存大小时，<code>传入</code>的主要对象是<code>数据类型</code>，这个在编译器的<code>编译阶段</code>(即编译时)就会确定大小而不是在运行时确定。</p>
+<p>3、<code>sizeof</code>最终得到的结果是该数据类型占用空间的大小</p>
+</blockquote>
+</li>
+<li><p>**class_getInstanceSize **</p>
+<p>计算对象实际占用的内存大小，这个需要依据类的属性而变化</p>
+</li>
+<li><p><strong>malloc_size</strong></p>
+<p>对象系统分配的内存大小</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>区别</th>
+<th>参数类型</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>sizeof()</strong></td>
+<td>终得到的结果是该数据类型占用空间的大小</td>
+<td>基本数据类型、对象、指针</td>
+<td>sizeof(Struct1）<br>sizeof(Int)</td>
+</tr>
+<tr>
+<td><strong>class_getInstanceSize（）</strong></td>
+<td>对象实际占用的内存大小</td>
+<td>对象类型</td>
+<td>class_getInstanceSize([NSObject  class])</td>
+</tr>
+<tr>
+<td><strong>malloc_size（）</strong></td>
+<td>系统分配的内存大小</td>
+<td>__bridge指针类型</td>
+<td>malloc_size((__bridge const void*)(obj))</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h1 id="3-为什么要进行内存对齐"><a href="#3-为什么要进行内存对齐" class="headerlink" title="3. 为什么要进行内存对齐"></a>3. 为什么要进行内存对齐</h1><ol>
+<li>尽管内存是以字节为单位，但是大部分处理器并不是按字节块来存取内存的.它一般会以双字节,四字节,8字节,16字节甚至32字节为单位来存取内存，我们将上述这些存取单位称为内存存取粒度.</li>
+<li>不同硬件平台不一定支持访问任意内存地址数据，使用内存对齐可以保证每次访问都从块内存地址头部开始存取</li>
+<li>提高cpu内存访问速度，内存是分块的，如两字节一块，四字节一块，考虑这种情况：一个四字节变量存在一个四字节地址的后三位和下一个四字节地址的前一位，这样cpu从内存中取数据便需要访问两个内存并将他们组合起来，降低cpu性能</li>
+</ol>
+<blockquote>
+<ul>
+<li>通常内存是由一个个字节组成的，cpu在存取数据时，并不是以字节为单位存储，而是以块为单位存取，块的大小为内存存取力度。频繁存取字节未对齐的数据，会极大降低cpu的性能，所以可以通过减少存取次数来降低cpu的开销</li>
+<li>16字节对齐，是由于在一个对象中，第一个属性isa占8字节，当然一个对象肯定还有其他属性，当无属性时，会预留8字节，即16字节对齐，如果不预留，相当于这个对象的isa和其他对象的isa紧挨着，容易造成访问混乱</li>
+<li>16字节对齐后，可以加快CPU读取速度，同时使访问更安全，不会产生访问混乱的情况</li>
+</ul>
+</blockquote>
+<h1 id="4-内存对齐原则"><a href="#4-内存对齐原则" class="headerlink" title="4. 内存对齐原则"></a>4. 内存对齐原则</h1><p><strong>内存字节对齐的原则，主要有以下三点：</strong></p>
+<ol>
+<li><p>数据成员对齐规则：struct 或者 union 的数据成员，第一个数据成员放在offset为0的地方，以后每个数据成员存储的起始位置要从该成员大小或者成员的子成员大小（只要该成员有子成员，比如数据、结构体等）的整数倍开始（例如int在32位机中是4字节，则要从4的整数倍地址开始存储）</p>
+<blockquote>
+<p>index 的取值满足以下伪代码：</p>
+<p>for（int x= offset; x++; x % currentIvarSize == 0 ） {</p>
+<p>​      index = x; </p>
+<p>}</p>
+</blockquote>
+</li>
+<li><p>数据成员为结构体：如果一个结构里有某些结构体成员，则结构体成员要从其内部最大元素大小的整数倍地址开始存储（例如：struct a里面存有struct b，b里面有char、int、double等元素，则b应该从8的整数倍开始存储）</p>
+</li>
+<li><p>结构体的整体对齐规则：结构体的总大小，即sizeof的结果，必须是其内部做大成员的整数倍，不足的要补齐</p>
+</li>
+</ol>
+<p><strong>实例🌰</strong></p>
+<p>例子1（下标对齐）：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct Struct1 {</span><br><span class="line">    double a; // 8</span><br><span class="line">    int b; // 4</span><br><span class="line">    char c; // 1</span><br><span class="line">    short d; // 2</span><br><span class="line">}Struct1;</span><br></pre></td></tr></tbody></table></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>a(8字节)</th>
+<th>b（4字节）</th>
+<th>c（1字节）</th>
+<th>d（2字节）</th>
+<th>末尾补齐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对齐前</td>
+<td>【0-7】</td>
+<td>【8-11】</td>
+<td>【12】</td>
+<td>【13-14】</td>
+<td></td>
+</tr>
+<tr>
+<td>对齐后</td>
+<td>【0-7】</td>
+<td>【8-11】</td>
+<td>【12】</td>
+<td>下标13不可以整除2(原则第1条);对齐后是【14-15】</td>
+<td>正好，不需要补</td>
+</tr>
+</tbody></table>
+<p>例子2（下表对齐+总长度对齐）：</p>
+<figure class="highlight objc"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Struct2 {</span><br><span class="line">    <span class="keyword">int</span> a; <span class="comment">// 4</span></span><br><span class="line">    <span class="keyword">double</span> b; <span class="comment">// 8</span></span><br><span class="line">    <span class="keyword">int</span> c; <span class="comment">// 4</span></span><br><span class="line">    <span class="keyword">char</span> d; <span class="comment">// 1</span></span><br><span class="line">}Struct2;</span><br></pre></td></tr></tbody></table></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>a(4字节)</th>
+<th>b（8字节）</th>
+<th>c（4字节）</th>
+<th>d（1字节）</th>
+<th>末尾补齐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对齐前</td>
+<td>【0-3】</td>
+<td>【4-11】</td>
+<td>【12-15】</td>
+<td>【16】</td>
+<td></td>
+</tr>
+<tr>
+<td>对齐后</td>
+<td>【0-3】</td>
+<td>下标4不可以整除8(原则第1条);<br>对齐后是【8-15】</td>
+<td>【16-19】</td>
+<td>【20】</td>
+<td>总长度必须是最大成员的整数倍(原则第3条)；<br>补齐末尾【21-23】</td>
+</tr>
+</tbody></table>
+<p>例子3（）：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//1、结构体嵌套结构体</span><br><span class="line">struct Struct3{</span><br><span class="line">    char a;   //1字节</span><br><span class="line">    int b;      //4字节</span><br><span class="line">    short c;    //2字节</span><br><span class="line">    double d;     //8字节</span><br><span class="line">    struct Struct2 str; </span><br><span class="line">}Struct3;</span><br><span class="line"></span><br><span class="line">//2、打印 Mystruct3 的内存大小</span><br><span class="line">NSLog(@"Mystruct3内存大小：%lu", sizeof(Mystruct3));</span><br><span class="line">NSLog(@"Mystruct3中结构体成员内存大小：%lu", sizeof(Mystruct3.str));</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>a<br>(1字节)</th>
+<th>b<br>（4字节）</th>
+<th>c<br>（2字节）</th>
+<th>d<br>（8字节）</th>
+<th>str<br>（24字节）</th>
+<th>末尾补齐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对齐前</td>
+<td>【0】</td>
+<td>【1-4】</td>
+<td>【5-6】</td>
+<td>【7-14】</td>
+<td>…..</td>
+<td></td>
+</tr>
+<tr>
+<td>对齐后</td>
+<td>【0】</td>
+<td>下标1不可以整除4(原则第1条);<br>对齐后是【4-7】</td>
+<td>【8-9】</td>
+<td>下标10不可以整除8(原则第1条);<br>【16-23】</td>
+<td>【24-27】–a<br>【32-39】–b<br>【40-43】–c<br>【44】</td>
+<td>总长度必须是最大成员的整数倍(原则第3条)；<br>补齐末尾【45-47】</td>
+</tr>
+</tbody></table>
+<h1 id="TODO：5-内存优化（属性重排）"><a href="#TODO：5-内存优化（属性重排）" class="headerlink" title="TODO：5. 内存优化（属性重排）"></a>TODO：5. 内存优化（属性重排）</h1><p>待。。。。</p>
+<h1 id="6-内存对齐算法"><a href="#6-内存对齐算法" class="headerlink" title="6. 内存对齐算法"></a>6. 内存对齐算法</h1><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __LP64__</span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">define</span> WORD_SHIFT 3UL</span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">define</span> WORD_MASK 7UL</span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">define</span> WORD_BITS 64</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">define</span> WORD_SHIFT 2UL</span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">define</span> WORD_MASK 3UL</span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">define</span> WORD_BITS 32</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">uint32_t</span> <span class="title">word_align</span><span class="params">(<span class="keyword">uint32_t</span> x)</span> </span>{</span><br><span class="line">    <span class="keyword">return</span> (x + WORD_MASK) &amp; ~WORD_MASK;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">size_t</span> <span class="title">word_align</span><span class="params">(<span class="keyword">size_t</span> x)</span> </span>{</span><br><span class="line">    <span class="keyword">return</span> (x + WORD_MASK) &amp; ~WORD_MASK;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">size_t</span> <span class="title">align16</span><span class="params">(<span class="keyword">size_t</span> x)</span> </span>{</span><br><span class="line">    <span class="keyword">return</span> (x + <span class="built_in">size_t</span>(<span class="number">15</span>)) &amp; ~<span class="built_in">size_t</span>(<span class="number">15</span>);</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>注意：</strong></p>
+<ul>
+<li>class_getInstanceSize（Class cls）：底层是8字节对齐</li>
+<li>cls-&gt;instanceSize(extraBytes)：底层是16字节对齐</li>
+</ul>
+<p><strong>总结</strong></p>
+<ul>
+<li>在字节对齐算法中，对齐的主要是<code>对象</code>，而对象的本质则是一个 struct objc_object的<code>结构体</code>，</li>
+<li><code>结构体</code>在内存中是<code>连续存放</code>的，所以可以利用这点对结构体进行强转。</li>
+<li>苹果早期是<code>8</code>字节对齐，<code>现在</code>是<code>16字节对齐</code></li>
+</ul>
+<p>下面以<code>align（8） 为例，</code>图解16字节对齐算法的计算过程，如下所示</p>
+<p> <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/92677025d2674fd0b3c0996b89e6b08c~tplv-k3u1fbpfcp-watermark.awebp" alt="16字节对齐算法图解"></p>
+<ul>
+<li>首先将原始的内存 <code>8</code> 与 <code>size_t(15)</code>相加，得到 8 + 15 = 23</li>
+<li>将 <code>size_t(15)</code> 即 15进行<code>~（取反）</code>操作，<code>~（取反）</code>的规则是：<code>1变为0，0变为1</code></li>
+<li>最后将 23 与 15的取反结果 进行 <code>&amp;（与）</code>操作，<code>&amp;（与）</code>的规则是：<code>都是1为1，反之为0</code>，最后的结果为 16，即内存的大小是以<code>16</code>的倍数增加的</li>
+</ul>
+<p>链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6949576678205030431">https://juejin.cn/post/6949576678205030431</a></p>
+<h1 id="7-面试题"><a href="#7-面试题" class="headerlink" title="7. 面试题"></a>7. 面试题</h1><ol>
+<li><p>一个NSObject对象占用多少内存空间？（问的是实际占用空间，不是系统分配空间）</p>
+<p>答：一个NSObject对象的结构体中，只有isa一个成员，isa是指针类型。因此，在64位架构中，占用<strong>8个字节</strong>的内存。在这里，结构体中只有一个成员，所以isa的地址，就是结构体的地址，就是NSObject对象的地址。</p>
+</li>
+<li><p>一个自定义类的对象占用多大的内存空间？</p>
+<p>答：isa(8字节) + 各变量占用空间</p>
+</li>
+</ol>
+
                 
             </div>
             <hr/>
@@ -492,7 +777,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://chiefky.github.io/blog/blog/404/404.html">https://chiefky.github.io/blog/blog/404/404.html</a>
+                    <a href="https://chiefky.github.io/blog/blog/2018/09/07/nei-cun-guan-li-nei-cun-dui-qi/">https://chiefky.github.io/blog/blog/2018/09/07/nei-cun-guan-li-nei-cun-dui-qi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -529,7 +814,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/blog/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
+                                    <span class="chip bg-color">内存管理</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -697,18 +986,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blog/404/404.html">
+                <a href="/blog/2018/09/07/nei-cun-guan-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/blog/medias/featureimages/16.jpg" class="responsive-img" alt="内存管理">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">内存管理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -718,18 +1006,29 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-27
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-09-07
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            yuli
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/iOS/" class="post-category">
+                                    iOS
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
+                        <span class="chip bg-color">内存管理</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -737,16 +1036,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog/404/404.html">
+                <a href="/blog/2018/09/07/nei-cun-bu-ju-oc-lei-yu-dui-xiang/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/blog/medias/featureimages/4.jpg" class="responsive-img" alt="内存布局-OC类与对象">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">内存布局-OC类与对象</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -757,17 +1056,28 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-09-07
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            yuli
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/iOS/" class="post-category">
+                                    iOS
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
+                        <span class="chip bg-color">内存管理</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

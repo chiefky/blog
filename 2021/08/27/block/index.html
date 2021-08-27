@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="red carb">
-    <meta name="description" content="hello world">
+    <meta name="keywords" content="Block, red crab">
+    <meta name="description" content="憧憬是距离理解最遥远的感情">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>red carb</title>
+    <title>Block | red crab</title>
     <link rel="icon" type="image/png" href="/blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
@@ -45,7 +45,7 @@
                     
                     <img src="/blog/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">red carb</span>
+                    <span class="logo-span">red crab</span>
                 </a>
             </div>
             
@@ -144,10 +144,10 @@
         
         <img src="/blog/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">red carb</div>
+        <div class="logo-name">red crab</div>
         <div class="logo-desc">
             
-            hello world
+            憧憬是距离理解最遥远的感情
             
         </div>
     </div>
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">Block</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +431,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/blog/tags/block/">
+                                <span class="chip bg-color">block</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/blog/categories/iOS/" class="post-category">
+                                iOS
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -445,7 +458,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-11
+                    2021-08-27
                 </div>
                 
 
@@ -466,100 +479,131 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>title: 内存管理–类与对象<br>date: 2021-08-12<br>tags: ios</p>
-<h2 id="OC中的三种对象："><a href="#OC中的三种对象：" class="headerlink" title="OC中的三种对象："></a>OC中的三种对象：</h2><ul>
-<li>instance对象</li>
-<li>class对象</li>
-<li>meta-class对象</li>
-</ul>
-<h3 id="instance对象"><a href="#instance对象" class="headerlink" title="instance对象"></a>instance对象</h3><p>instance对象在内存中存储的信息  包括：</p>
+                <h1 id="Block的三种类型"><a href="#Block的三种类型" class="headerlink" title="Block的三种类型"></a>Block的三种类型</h1><h3 id="三种类型特点："><a href="#三种类型特点：" class="headerlink" title="三种类型特点："></a>三种类型特点：</h3><p>(堆栈是在运行时分配空间，全局是在编译期就能确定)</p>
 <ul>
-<li><p>isa指针</p>
+<li>全局block<ul>
+<li>位于全局区</li>
+<li>在block内部不使用外部变量 or <strong>只使用</strong>全局变量或者静态变量</li>
+</ul>
 </li>
-<li><p>其他成员变量</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实例对象：（堆区，初始化时指向它的指针在栈区）</span></span><br><span class="line">isa（前<span class="number">8</span>个字节）</span><br><span class="line">成员变量值</span><br><span class="line">…</span><br></pre></td></tr></table></figure></li>
+<li>堆区block<ul>
+<li>位于堆区</li>
+<li>前提：在block内部可以使用外部变量或OC属性，并且将block赋值给strong或copy修饰的变量</li>
 </ul>
-<h3 id="class对象"><a href="#class对象" class="headerlink" title="class对象"></a>class对象</h3><p>class对象在内存中存储的信息 主要包括：</p>
-<ul>
-<li>isa指针</li>
-<li>superclass指针</li>
-<li>类的属性信息（Property）</li>
-<li>类的成员变量信息（Ivar）</li>
-<li>对象方法信息（Instance Method）</li>
-<li>类的协议信息（Protocol）</li>
+</li>
+<li>栈区block<ul>
+<li>位于栈区</li>
+<li>前提：在block内部可以使用外部变量或OC属性，并且不对block赋值或者只能赋值给weak修饰的变量</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 类对象：（全局区）                               </span></span><br><span class="line">isa （前<span class="number">8</span>个字节</span><br><span class="line">superClass （第二个<span class="number">8</span>个字节）</span><br><span class="line">属性信息</span><br><span class="line">成员变量信息</span><br><span class="line">对象方法信息</span><br><span class="line">协议信息</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>举例说明：</p>
+<img src="../assets/images/block_声明.png" alt="声明" style="zoom:80%;">
 
-<h3 id="meta-class对象"><a href="#meta-class对象" class="headerlink" title="meta-class对象"></a>meta-class对象</h3><p>meta-class对象在内存中存储的信息主要包括：</p>
-<ul>
-<li>isa指针</li>
-<li>superclass指针</li>
-<li>类方法信息（Class Method）</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 类对象：（全局区）                               </span><br><span class="line">isa （前8个字节</span><br><span class="line">superClass （第二个8个字节）</span><br><span class="line">类方法信息</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+<img src="../assets/images/block_类型_global.png" alt="全局区block" style="zoom:80%;">
 
-<h2 id="isa指向"><a href="#isa指向" class="headerlink" title="isa指向"></a>isa指向</h2><p>instance对象 —&gt; class对象 —-&gt; meta-class对象 —-&gt; NSObject(Meta) —-&gt; NSObject(Meta) 自己</p>
-<p>🌰：person —&gt; YLPerson —-&gt; YLPerson(Meta) —-&gt; NSObject(Meta) —-&gt; NSObject(Meta) 自己</p>
-<h2 id="super指向"><a href="#super指向" class="headerlink" title="super指向"></a>super指向</h2><p> 自定义class对象 —-&gt; NSObject —-&gt; nil</p>
-<p>🌰：son —-&gt; YLPerson —-&gt; NSObject —-&gt; nil </p>
-<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><h4 id="Objective-C中的动态类型和静态类型"><a href="#Objective-C中的动态类型和静态类型" class="headerlink" title="Objective-C中的动态类型和静态类型"></a>Objective-C中的动态类型和静态类型</h4><ul>
-<li><p>动态类型</p>
-<p>动态类型指的是对象指针类型的动态性，具体是指使用<code>id</code>修饰后将对象的类型确定推迟到运行时，由赋给它的对象类型决定对象指针的类型。也就是说<code>id</code>修饰的对象为动态类型对象，其他在编译器指明类型的为静态类型对象，通常如果不需要涉及到多态的话还是要尽量使用静态类型（原因：错误可以在编译器提前查出，可读性好）。</p>
-</li>
-<li><p>静态类型</p>
-<p>一个指针变量指向特定类的对象时，使用的是静态类型，在编译的时候就知道这个指针变量所属的类。使用静态类型时，编译器在编译期间，会做许多的类型检查：因为编译器需要知道哪个对象该如何使用。</p>
-</li>
-</ul>
-<h4 id="关联返回类型和非关联返回类型"><a href="#关联返回类型和非关联返回类型" class="headerlink" title="关联返回类型和非关联返回类型"></a>关联返回类型和非关联返回类型</h4><ul>
-<li><p>关联返回类型涉及的方法</p>
-<ul>
-<li><p>类方法：以alloc、new 开头的</p>
-</li>
-<li><p>实例方法：以<code>autorelease</code>，<code>init</code>，<code>retain</code>或<code>self</code>开头</p>
-<p>当这些方法返回值为<code>id</code>类型时，编译器不会返回一个类型不明的对象，会返回一个方法所在类类型的对象，这些方法就被称为是关联返回类型的方法。换句话说，这些方法的返回结果以方法所在的类为类型。</p>
-<p>🌰：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@interface YLAnimal : NSObject</span><br><span class="line">  </span><br><span class="line">+ (id)newTestObject;  // 返回一个自动关联为YLAnimal类型的对象</span><br><span class="line">+ (id)allocTestObject;// 返回一个自动关联为YLAnimal类型的对象</span><br><span class="line">+ (id)testObject;// 返回一个类型不明的对象</span><br><span class="line">@end</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>非关联返回类型</p>
-<ul>
-<li>非以上关键字开头的方法,返回值不关联所属类的类型，会返回一个类型不明的对象</li>
-</ul>
-</li>
-</ul>
-<h3 id="id、instancetype、NSObject-的区别"><a href="#id、instancetype、NSObject-的区别" class="headerlink" title="id、instancetype、NSObject * 的区别"></a>id、instancetype、NSObject * 的区别</h3><p>答：</p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>使用范围</th>
-<th>静态or动态</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>* 定义变量； <br />* 定义方法返回值；<br />*  定义方法参数。</td>
-<td>动态类型对象；<br />编译时编译器不会检查id对象的类型，<br />只有在运行时动态检查后会报错。<br /></td>
-</tr>
-<tr>
-<td>instancetype</td>
-<td>* 只可作为函数返回值</td>
-<td>动态类型 <br/>（扩大关联返回类型的方法范围，<br>不再只是cocoa定义的特定关键字开头）<br />作用：可以使那些<font color="red"><strong>非关联返回类型</strong></font>的方法返回所在类的类型</td>
-</tr>
-<tr>
-<td>NSObject *</td>
-<td>* 定义变量； <br />* 定义方法返回值；<br />*  定义方法参数。</td>
-<td>静态类型<br />编译时会进行类型检查。</td>
-</tr>
-<tr>
-<td>id<NSObject> *</td>
-<td></td>
-<td>只要遵循<NSObject>协议的任何一种类型；</td>
-</tr>
-</tbody></table>
-<h3 id="Todo-关于NSProxy与NSObject"><a href="#Todo-关于NSProxy与NSObject" class="headerlink" title="Todo : 关于NSProxy与NSObject"></a>Todo : 关于NSProxy与NSObject</h3><img src="../images/内存对齐_OC类与对象_NSObject.jpg" alt="NSobject" style="zoom:80%;" />
+<img src="../assets/images/block_类型_malloc_statck.png" alt="堆区和栈区" style="zoom:80%;">
 
-<img src="../images/内存对齐_OC类与对象_NSProxy.jpg" style="zoom:80%;" />
+
+
+<h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><ol>
+<li><p>以下代码将会怎样执行？换成注释中的代码又会怎样执行？</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (void)testStackBlock_copy {</span><br><span class="line">    int num = 8;</span><br><span class="line">    void(^__weak weakBlock)(void) = nil;</span><br><span class="line">    {</span><br><span class="line">        void(^__weak weakBlock1)(void) = ^{</span><br><span class="line">            NSLog(@"num = %d",num);</span><br><span class="line">        };  </span><br><span class="line">        weakBlock = weakBlock1;// [weakBlock1 copy];</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    weakBlock();</span><br><span class="line">    </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>答： </p>
+<p> 1.” weakBlock = weakBlock1; “</p>
+<p>  两个block都是stack block，都存储在栈区；栈区空间是方法体空间，中间的’{}’表示匿名作用域，（C语言中介绍）栈存储期间匿名作用域的变量超出匿名作用域不一定立即释放；</p>
+<pre><code> 2. "weakBlock = [weakBlock1 copy];"
+    
+ 经过copy后 weakBlock指向的是堆区的空间，在ARC下,编译器在匿名作用域"}"插入了release，weakBlock 指向的区域被自动释放，所以超出"}"调用weakBlock() 会崩溃。        
+</code></pre>
+</blockquote>
+</li>
+<li><p>什么情况下系统不会对block执行copy操作？</p>
+</li>
+</ol>
+<p>答：stack block作为函数参数时，系统无法判断是否需要进行copy，此时不会主动进行copy操作；</p>
+<p>#2. block原理探索</p>
+<h2 id="2-1-block的本质"><a href="#2-1-block的本质" class="headerlink" title="2.1 block的本质"></a>2.1 block的本质</h2><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, const char * argv[]) {</span><br><span class="line">   </span><br><span class="line">    NSObject *obj = [NSObject alloc];</span><br><span class="line">    void (^ strBlock)(void) = ^{</span><br><span class="line">        NSLog(@"obj retainCount: %ld",CFGetRetainCount((__bridge CFTypeRef)obj));</span><br><span class="line">    };</span><br><span class="line">    strBlock();</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>block代码经过编译生成的c++源码:</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> __<span class="title">main_block_impl_0</span> {</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> __<span class="title">block_impl</span> <span class="title">impl</span>;</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> __<span class="title">main_block_desc_0</span>* <span class="title">Desc</span>;</span></span><br><span class="line">  NSObject *obj;</span><br><span class="line">  __main_block_impl_0(<span class="keyword">void</span> *fp, struct __main_block_desc_0 *desc, NSObject *_obj, <span class="keyword">int</span> flags=<span class="number">0</span>) : <span class="built_in">obj</span>(_obj) {</span><br><span class="line">    impl.isa = &amp;_NSConcreteStackBlock;</span><br><span class="line">    impl.Flags = flags;</span><br><span class="line">    impl.FuncPtr = fp;</span><br><span class="line">    Desc = desc;</span><br><span class="line">  }</span><br><span class="line">};</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> __main_block_func_0(struct __main_block_impl_0 *__cself) {</span><br><span class="line">  NSObject *obj = __cself-&gt;obj; <span class="comment">// bound by copy</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">NSLog</span>((NSString *)&amp;__NSConstantStringImpl__var_folders_kg_jwbbkd7s2zd3q3kqhq5x64wm0000gp_T_main_a63961_mi_5,<span class="built_in">CFGetRetainCount</span>((__bridge CFTypeRef)obj));</span><br><span class="line">    }</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> __main_block_copy_0(struct __main_block_impl_0*dst, struct __main_block_impl_0*src) {_Block_object_assign((<span class="keyword">void</span>*)&amp;dst-&gt;obj, (<span class="keyword">void</span>*)src-&gt;obj, <span class="number">3</span><span class="comment">/*BLOCK_FIELD_IS_OBJECT*/</span>);}</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> __main_block_dispose_0(struct __main_block_impl_0*src) {_Block_object_dispose((<span class="keyword">void</span>*)src-&gt;obj, <span class="number">3</span><span class="comment">/*BLOCK_FIELD_IS_OBJECT*/</span>);}</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">struct</span> __<span class="title">main_block_desc_0</span> {</span></span><br><span class="line">  <span class="keyword">size_t</span> reserved;</span><br><span class="line">  <span class="keyword">size_t</span> Block_size;</span><br><span class="line">  <span class="built_in"><span class="keyword">void</span></span> (*copy)(struct __main_block_impl_0*, struct __main_block_impl_0*);</span><br><span class="line">  <span class="built_in"><span class="keyword">void</span></span> (*dispose)(struct __main_block_impl_0*);</span><br><span class="line">} __main_block_desc_0_DATA = { <span class="number">0</span>, <span class="built_in"><span class="keyword">sizeof</span></span>(struct __main_block_impl_0), __main_block_copy_0, __main_block_dispose_0};</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>{</span><br><span class="line"></span><br><span class="line">    NSObject *obj = ((NSObject *(*)(id, SEL))(<span class="keyword">void</span> *)objc_msgSend)((id)<span class="built_in">objc_getClass</span>(<span class="string">"NSObject"</span>), <span class="built_in">sel_registerName</span>(<span class="string">"alloc"</span>));</span><br><span class="line">    <span class="built_in"><span class="keyword">void</span></span> (* strBlock)(<span class="keyword">void</span>) = ((<span class="built_in"><span class="keyword">void</span></span> (*)())&amp;__main_block_impl_0((<span class="keyword">void</span> *)__main_block_func_0, &amp;__main_block_desc_0_DATA, obj, <span class="number">570425344</span>));</span><br><span class="line">    ((<span class="built_in"><span class="keyword">void</span></span> (*)(__block_impl *))((__block_impl *)strBlock)-&gt;FuncPtr)((__block_impl *)strBlock);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in"><span class="keyword">void</span></span> (* strBlock)(<span class="keyword">void</span>) = ((<span class="built_in"><span class="keyword">void</span></span> (*)())&amp;__main_block_impl_0((<span class="keyword">void</span> *)__main_block_func_0, &amp;__main_block_desc_0_DATA, obj, <span class="number">570425344</span>));</span><br><span class="line"></span><br><span class="line">((<span class="built_in"><span class="keyword">void</span></span> (*)(__block_impl *))((__block_impl *)strBlock)-&gt;FuncPtr)((__block_impl *)strBlock);</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+<img src="../assets/images/block_main_cpp.png" alt="main_cpp" style="zoom:80%;">
+
+
+
+<p>从上图看出:</p>
+<ol>
+<li><p>main函数中的strBlock被编译成了一个<code>__main_block_impl_0</code>的strut;</p>
+</li>
+<li><p><code>__main_block_impl_0</code> 结构体包含一个<code>__block_impl</code>结构体、一个<code>__main_block_desv_0</code>结构体和一个捕获的外部变量<code>obj</code>；</p>
+<img src="../assets/images/block_imp.jpg" alt="bloc_imp" style="zoom:120%;"></li>
+<li><p><code>__block_impl</code>结构体则包含一个isa、一个FuncPtr 和两个int类型标记；</p>
+</li>
+</ol>
+<h3 id="如何查看Block类型？"><a href="#如何查看Block类型？" class="headerlink" title="如何查看Block类型？"></a>如何查看Block类型？</h3><p>（看👀–&gt; struct 的isa) 📢：这里只是编译成cpp代码的中间类型，经过汇编，如果会copy到堆区最终将修改成mallocblock</p>
+<h2 id="2-2-block是怎样捕获外部变量的？"><a href="#2-2-block是怎样捕获外部变量的？" class="headerlink" title="2.2 block是怎样捕获外部变量的？"></a>2.2 block是怎样捕获外部变量的？</h2><p>对于 block 外的变量引用，block 默认是将其复制到其数据结构中来实现访问的。也就是说block的自动变量截获只针对block内部使用的自动变量, 不使用则不截获, 因为截获的自动变量会存储于block的结构体内部, 会导致block体积变大。特别要注意的是默认情况下block只能访问不能修改局部变量的值。捕获变量分两种情况如下：</p>
+<ul>
+<li>非<code>__block</code>修饰的变量</li>
+<li><code>__block</code>修饰的变量</li>
+</ul>
+<h3 id="2-2-1-捕获非-block修饰的变量"><a href="#2-2-1-捕获非-block修饰的变量" class="headerlink" title="2.2.1 捕获非__block修饰的变量"></a>2.2.1 捕获非<code>__block</code>修饰的变量</h3><h4 id="从内存管理语义角度考察"><a href="#从内存管理语义角度考察" class="headerlink" title="从内存管理语义角度考察"></a>从内存管理语义角度考察</h4><p>原则：遇强捕强遇弱捕弱</p>
+<h4 id="从输出捕获变量值考察"><a href="#从输出捕获变量值考察" class="headerlink" title="从输出捕获变量值考察"></a>从输出捕获变量值考察</h4><ul>
+<li><p>捕获外部变量(传递的是值)</p>
+</li>
+<li><p>捕获静态变量(传递的是静态变量的指针)</p>
+</li>
+<li><p>捕获全局变量（没有传递，直接访问的全局区）</p>
+</li>
+<li><p>捕获外部OC对象（传的是对象的值）</p>
+<p>原因：<strong>为了保证block内部能够正常访问外部的变量，block有个变量捕获机制；auto变量age的block访问方式是值传递，static变量num的block访问方式是指针传递，block不需要对全局变量捕获，都是直接采用取全局变量的值</strong>。</p>
+<img src="../assets/images/block_main_m_catch.png" alt="捕获变量" style="zoom:80%;">
+
+<img src="../assets/images/block_main_cpp_catch_2.png" alt="捕获变量编译源码解析2" style="zoom:80%;">
+
+<img src="../assets/images/block_main_cpp_catch_1.png" alt="捕获变量源码解析1" style="zoom:80%;"></li>
+</ul>
+<h3 id="2-2-2-捕获-block修饰的变量"><a href="#2-2-2-捕获-block修饰的变量" class="headerlink" title="2.2.2 捕获__block修饰的变量"></a>2.2.2 捕获<code>__block</code>修饰的变量</h3><p>对于用 <code>__block</code> 修饰的外部变量引用，block 是复制其引用地址来实现访问的。block可以修改__block 修饰的外部变量的值。</p>
+<img src="../assets/images/block_main_cpp__block_2.png" alt="__block传指针" style="zoom:80%;">
+
+<img src="../assets/images/block_main_cpp__block_0.png" alt="__block传指针" style="zoom:100%;">
+
+<p>通过编译源码解析成的c代码，会发现加上<code>__block</code>修饰符的局部变量，竟然跟block一样变成了一个<code>__Block_byref_bmuArray_0</code>结构体类型变量实例！！！！</p>
+<p>此时我们在block内部访问val变量则需要通过一个叫__forwarding的成员变量来间接访问val变量。</p>
+<img src="../assets/images/block_main_cpp__block_1.png" alt="__block传指针" style="zoom:80%;">
+
+
+
+<h4 id="block变量与-forwarding"><a href="#block变量与-forwarding" class="headerlink" title="__block变量与__forwarding"></a><code>__block变量</code>与__forwarding</h4><img src="../assets/images/block_forwarding.png" alt="__forwording" style="zoom:80%;">
+
+<p>通过__forwarding, 无论是在block中还是 block外访问__block变量, 也不管该变量在栈上或堆上, 都能顺利地访问同一个__block变量。</p>
+<h1 id="3-block内循环引用解决方案"><a href="#3-block内循环引用解决方案" class="headerlink" title="3. block内循环引用解决方案"></a>3. block内循环引用解决方案</h1><ul>
+<li> 方案一：借助weak</li>
+</ul>
+  <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (void)testBlockLifeCircle_weak {</span><br><span class="line">  __weak typeof(self) weakSelf = self;</span><br><span class="line"></span><br><span class="line">  self.yl_VBlock = ^{</span><br><span class="line">    NSLog(@"demoName = %@",[weakSelf demoName]);</span><br><span class="line">  };</span><br><span class="line">  self.yl_VBlock();</span><br><span class="line">}	</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><p>方案二：借助__block</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (void)testBlockLifeCircle_block {</span><br><span class="line"></span><br><span class="line">  __block YLBlockRetainCycleViewController *tmpVC = self;</span><br><span class="line">  self.yl_VBlock = ^{</span><br><span class="line">    NSLog(@"demoName = %@",[tmpVC demoName]);</span><br><span class="line">    tmpVC = nil; // 📢：1.必须将变量置为nil</span><br><span class="line">  };</span><br><span class="line">  self.yl_VBlock(); // 📢：2.必须调用block(如果不调不会，解决循环引用)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p> 方案三：借助参数</p>
+</li>
+</ul>
+  <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)testBlockLifeCircle_Parameter {</span><br><span class="line">  self.yl_PBlock = ^(YLBlockRetainCycleViewController *vc) {</span><br><span class="line">    NSLog(@"demoName = %@",[vc demoName]);</span><br><span class="line">  };</span><br><span class="line">  self.yl_PBlock(self);</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li> 方案四：使用NSProxy（其实是借助参数传递中间者+中间者弱持有self就可以解决，完全可以不用消息转发）（使用Proxy的原理是：1.添加了一个中间者Proxy；2.Proxy持有一个弱引用对象，也就是响应方法的目标对象；3. 借助消息转发机制将消息传递给目标对象）</li>
+</ul>
+  <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)testBlockLifeCircle_Rroxy {</span><br><span class="line">  YLProxy *proxy = [YLProxy proxyWithTarget:self];</span><br><span class="line">  self.yl_PoxBlock = ^(YLProxy *pox) {</span><br><span class="line">    NSLog(@"demoName = %@",[pox.target demoName]);</span><br><span class="line">  };</span><br><span class="line">  self.yl_PoxBlock(proxy);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 
                 
@@ -587,7 +631,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://chiefky.github.io/blog/blog/2021/08/11/nei-cun-guan-li-lei-yu-dui-xiang/">https://chiefky.github.io/blog/blog/2021/08/11/nei-cun-guan-li-lei-yu-dui-xiang/</a>
+                    <a href="https://chiefky.github.io/blog/blog/2021/08/27/block/">https://chiefky.github.io/blog/blog/2021/08/27/block/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -624,7 +668,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/blog/tags/block/">
+                                    <span class="chip bg-color">block</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -792,62 +840,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/blog/2021/08/14/nei-cun-guan-li-nei-cun-dui-qi/">
+                <a href="/blog/2021/08/27/block/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/14.jpg" class="responsive-img" alt="内存管理--内存对齐">
+                        <img src="/blog/medias/featureimages/5.jpg" class="responsive-img" alt="Block">
                         
-                        <span class="card-title">内存管理--内存对齐</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-14
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            yuli
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/blog/tags/ios/">
-                        <span class="chip bg-color">ios</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/blog/2021/08/11/nei-cun-guan-li-lei-yu-dui-xiang/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/blog/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                        
-                        <span class="card-title"></span>
+                        <span class="card-title">Block</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -858,7 +862,57 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/iOS/" class="post-category">
+                                    iOS
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/block/">
+                        <span class="chip bg-color">block</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/blog/2021/08/27/hello-world/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        
+                        <span class="card-title">Hello World</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-27
                             </span>
                         <span class="publish-author">
                             
@@ -868,7 +922,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
