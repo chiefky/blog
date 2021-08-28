@@ -236,7 +236,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/chiefky" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -293,7 +293,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/chiefky" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -512,10 +512,12 @@
 
 <blockquote>
 <p>答： </p>
-<p> 1.” weakBlock = weakBlock1; “</p>
-<p>  两个block都是stack block，都存储在栈区；栈区空间是方法体空间，中间的’{}’表示匿名作用域，（C语言中介绍）栈存储期间匿名作用域的变量超出匿名作用域不一定立即释放；</p>
+<p>1.” weakBlock = weakBlock1; “</p>
+<p>两个block都是stack block，都存储在栈区；栈区空间是方法体空间，中间的’{}’表示匿名作用域，（C语言中介绍）栈存储期间匿名作用域的变量超出匿名作用域不一定立即释放；</p>
 <pre><code> 2. "weakBlock = [weakBlock1 copy];"
-    
+
+ 
+ 
  经过copy后 weakBlock指向的是堆区的空间，在ARC下,编译器在匿名作用域"}"插入了release，weakBlock 指向的区域被自动释放，所以超出"}"调用weakBlock() 会崩溃。        
 </code></pre>
 </blockquote>
